@@ -7,14 +7,13 @@ const precos = []
 const fotos = []
 
 function inclusao(){
-
-console.log('\n'+'-'.repeat(83)+'\n📝 Inclusão de Produtos no Cardápio')
-console.log('-'.repeat(83)+'\n')
-const a =        prompt('🍔 Nome do Produto......: ')
-const b =        prompt('🛒 Categoria............: ')
-const c =        prompt('📑 Igredientes..........: ')
-const d = Number(prompt('💵 Preço R$.............: ')).toFixed(2)
-const e =        prompt('🖼️ URL da foto..........: ')
+console.log('\n Inclusão de Produtos no Cardápio')
+console.log('-'.repeat(40))
+const a =        prompt('Nome do Produto......: ')
+const b =        prompt('Categoria............: ').toLocaleUpperCase
+const c =        prompt('Igredientes..........: ')
+const d = Number(prompt('Preço R$.............: ')).toFixed(2)
+const e =        prompt('URL  da foto.........: ')
 
 // Adicionar nos vetores
 nomes.push(a)
@@ -23,32 +22,29 @@ igredientes.push(c)
 precos.push(d)
 fotos.push(e)
 
-console.log(`\n✅ Produto Cadastrado com Sucesso!\n`+`-`.repeat(83))
+console.log(`\n✅ Produto Cadastrado com Sucesso!\n`+`-`.repeat(40))
 }
 
 function listagem(){
 
-    console.log('\n'+'-'.repeat(83)+'\n📋 Listagem dos Produtos Cadastrados\n'+'-'.repeat(83))
+    console.log('\n📋 Listagem dos Produtos Cadastrados\n' + '-'.repeat(40) + '\n\n')
     console.log(`\nProduto............: Categoria: Igredientes............................: Preço....:\n`)
 
     for (let i in nomes) {
         console.log(`${nomes[i].padEnd(20)} ${categorias[i].padEnd(10)} ${igredientes[i].padEnd(40)} ${precos[i].padStart(10)}`)
     }
-    console.log('\n'+'-'.repeat(83)+'')
 }
 
 function pesquisaCategoria(){
-    console.log('\n'+'-'.repeat(83)+'\n🔍 Pesquisa por Categoria\n'+'-'.repeat(83))
+    console.log('\n🔍 Pesquisa por Categoria\n' + '-'.repeat(40) + '\n\n')
+    const cat = prompt('Categoria............: ').toLocaleUpperCase
     
-    let categoria = prompt(`Infome a Categoria : `)
-
-    console.log(`\nProduto............: Categoria: Igredientes............................: Preço....:\n`)
-    for (i in categorias) {
-        if(categorias[i] == categoria) {
-            console.log(`${nomes[i].padEnd(20)} ${categorias[i].padEnd(10)} ${igredientes[i].padEnd(40)} ${precos[i].padStart(10)}`)
-        }            
+    for (cat in categorias) {
+        if(cat in categorias) {
+            console.log(`${nomes[cat].padEnd(20)} ${categorias[cat].padEnd(10)} ${igredientes[cat].padEnd(40)} ${precos[cat].padStart(10)}`)
+        }
     }
-        console.log('\n'+'-'.repeat(83)+'')
+
 }
 
 function pesquisaPreco(){
@@ -77,17 +73,18 @@ function exclusao(){
 
 menuPrincipal:
 do{
-    console.log('\n🍔 LANCHERIA AVENIDA - CONTROLE DE CARDÁPIO\n'+"-".repeat(83)+'\n')
-    console.log('1️⃣. 📝 Inclusão de Produtos')
-    console.log('2️⃣. 📋 Listagem de Produtos')
-    console.log('3️⃣. 🔍 Pesquisa por Categoria')
-    console.log('4️⃣. 🔎 Presquisa por Intervalo de Preço')
-    console.log('5️⃣. 📖 Gerar Cardápio Web')
-    console.log('6️⃣. 🌐 Gerar Cardápio Web por Categoria')
-    console.log('7️⃣. 💱 Alterar Preço  de Produto')
-    console.log('8️⃣. ❌ Excluir Produto')
-    console.log('9️⃣. ↩️ Finalizar')
-    const opcao = Number(prompt('\n🔸 Opção: '))
+    console.log('\nLancheria Avenida - Controle de Cardápio')
+    console.log("-".repeat(40))
+    console.log('1. 📝 Inclusão de Produtos')
+    console.log('2. 📋 Listagem de Produtos')
+    console.log('3. 🔍 Pesquisa por Categoria')
+    console.log('4. 🔎 Pesquisa por Intervalo de Preço')
+    console.log('5. 📖 Gerar Cardápio Web')
+    console.log('6. 🌐 Gerar Cardápio Web por Categoria')
+    console.log('7. 💱 Alterar Preço  de Produto')
+    console.log('8. ❌ Excluir Produto')
+    console.log('9. ↩️ Finalizar')
+    const opcao = Number(prompt('\nOpção: '))
     
     switch (opcao) {
         case 1 : {
