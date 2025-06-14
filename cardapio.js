@@ -10,7 +10,7 @@ function inclusao(){
 console.log('\n Inclusão de Produtos no Cardápio')
 console.log('-'.repeat(40))
 const a =        prompt('Nome do Produto......: ')
-const b =        prompt('Categoria............: ').toLocaleUpperCase
+const b =        prompt('Categoria............: ').toUpperCase()
 const c =        prompt('Igredientes..........: ')
 const d = Number(prompt('Preço R$.............: ')).toFixed(2)
 const e =        prompt('URL  da foto.........: ')
@@ -73,18 +73,17 @@ function exclusao(){
 
 menuPrincipal:
 do{
-    console.log('\nLancheria Avenida - Controle de Cardápio')
-    console.log("-".repeat(40))
+    console.log("-".repeat(50)+'\n🍔 Lancheria Avenida - Controle de Cardápio\n'+"-".repeat(50))
     console.log('1. 📝 Inclusão de Produtos')
     console.log('2. 📋 Listagem de Produtos')
     console.log('3. 🔍 Pesquisa por Categoria')
     console.log('4. 🔎 Pesquisa por Intervalo de Preço')
     console.log('5. 📖 Gerar Cardápio Web')
     console.log('6. 🌐 Gerar Cardápio Web por Categoria')
-    console.log('7. 💱 Alterar Preço  de Produto')
+    console.log('7. 💱 Alterar Preço de Produto')
     console.log('8. ❌ Excluir Produto')
-    console.log('9. ↩️Finalizar')
-    const opcao = Number(prompt('\nOpção: '))
+    console.log('9. ↩️ Finalizar')
+    const opcao = Number(prompt('\n🔸 Opção: '))
     
     switch (opcao) {
         case 1 : {
