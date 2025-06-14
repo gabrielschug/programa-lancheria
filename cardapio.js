@@ -83,7 +83,7 @@ do{
     console.log('6. 🌐 Gerar Cardápio Web por Categoria')
     console.log('7. 💱 Alterar Preço  de Produto')
     console.log('8. ❌ Excluir Produto')
-    console.log('9. ↩️ Finalizar')
+    console.log('9. ↩️Finalizar')
     const opcao = Number(prompt('\nOpção: '))
     
     switch (opcao) {
