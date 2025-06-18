@@ -52,8 +52,19 @@ function pesquisaPreco(){
 
 }
 
-function cardapioWeb(){
-
+function cardapioWeb() {
+        let conteudo = `
+        <html>
+            <body>
+                <h1>Teste</h1>
+                </body>
+        </html>
+    
+        `
+    
+        fs.writeFileSync('cardapioWeb.html', conteudo)
+    
+        console.log(`\n✅ Cardápio gerado com sucesso`)
 }
 
 function gerarCardapioporCategoria(){
@@ -98,7 +109,6 @@ function obtemProdutos () {
         }
     }
 }
-
 
 
 // Carregar lista de produtos antes do Menu (se existir arquivo)

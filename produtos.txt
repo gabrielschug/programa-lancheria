@@ -1,2 +1,3 @@
 Torrada;SALGADOS;Pao + queijo + presunto;8.5;https://applicativa-marketplace-prod.s3.amazonaws.com/torrada-artigo.jpg
-Suco de Laranja;SUCOS;agua + poupa de fruta;9.00;https://villalvafrutas.com.br/wp-content/uploads/2018/01/599beb39b869f.jpg
+Suco de Laranja;SUCOS;agua + poupa de fruta;9;https://villalvafrutas.com.br/wp-content/uploads/2018/01/599beb39b869f.jpg
+Pastel de Guisado;SALGADOS;Massa + guisado + ovo;8.50;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzsbobljQ4Sg__Azj0yHW0syjnaYKb5jKG9g&s
