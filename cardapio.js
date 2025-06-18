@@ -32,7 +32,7 @@ function listagem(){
     console.log(`\nProduto............: Categoria: Igredientes............................: Preço....:\n`)
 
     for (let i in nomes) {
-        console.log(`${nomes[i].padEnd(20)} ${categorias[i].padEnd(10)} ${igredientes[i].padEnd(40)} ${precos[i].padStart(10)}`)
+        console.log(`${nomes[i].padEnd(20)} ${categorias[i].padEnd(10)} ${igredientes[i].padEnd(40)} ${precos[i]}`)
     }
 }
 
@@ -80,6 +80,29 @@ function gravaProdutos() {
     console.log(`\n✅ Lista Produtos salva com sucesso!`)
 }
 
+function obtemProdutos () {
+    if(fs.existsSync('produtos.txt')){  // SE produtos.txt existir ENTÃO...
+        
+        // Lê as linhas do .txt e fatia e separando as linhas (\n)
+        const produtos = fs.readFileSync('produtos.txt','utf-8').split('\n')
+
+        // Separa e manda pros vetores
+        for (i in produtos) {
+            const partes = produtos[i].split(';')
+
+            nomes.push(partes[0])
+            categorias.push(partes[1])
+            igredientes.push(partes[2])
+            precos.push(Number(partes[3]))
+            fotos.push(partes[4])
+        }
+    }
+}
+
+
+
+// Carregar lista de produtos antes do Menu (se existir arquivo)
+obtemProdutos()
 //---------------------------------- PROGRAMA PRINCIPAL ---------------------------------------
 
 menuPrincipal:
