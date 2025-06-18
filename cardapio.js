@@ -1,4 +1,5 @@
 const prompt = require("prompt-sync")()
+const fs = require("fs") // fs: file system (para manipular aqruivos)
 
 const nomes = []
 const categorias = []
@@ -67,7 +68,17 @@ function exclusao(){
 
 }
 
+function gravaProdutos() {
+    const produtos = []
 
+    for (i in nomes) {
+        produtos.push(nomes[i]+';'+categorias[i]+';'+igredientes[i]+';'+precos[i]+';'+fotos[i])
+    }
+
+    //Salvar dados do Vetor
+    fs.writeFileSync("produtos.txt",produtos.join("\n"))
+    console.log(`\n✅ Lista Produtos salva com sucesso!`)
+}
 
 //---------------------------------- PROGRAMA PRINCIPAL ---------------------------------------
 
@@ -122,3 +133,6 @@ do{
         }
     }
 } while(true)
+
+    // Chamar função gravaProdutos(), assim que o programa finalizar
+    gravaProdutos()
