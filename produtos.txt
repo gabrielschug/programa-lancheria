@@ -2,3 +2,4 @@ Torrada;SALGADOS;Pao + queijo + presunto;3.5;https://applicativa-marketplace-pro
 Suco de Laranja;SUCOS;agua + poupa de fruta;9;https://villalvafrutas.com.br/wp-content/uploads/2018/01/599beb39b869f.jpg
 Pastel de Guisado;SALGADOS;Massa + guisado + ovo;5.5;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzsbobljQ4Sg__Azj0yHW0syjnaYKb5jKG9g&s
 Coca Cola 600ml;BEBIDAS;S/A;5.5;https://andinacocacola.vtexassets.com/arquivos/ids/158894-800-450?v=638828463792970000&width=800&height=450&aspect=true
+Bauru Completo;LANCHES;Pao + Carne + Ovo + Saladas;20;https://static.ifood-static.com.br/image/upload/t_high/pratos/d5b94b50-a484-4e3a-9752-63ed103e3151/201909121400_xg2O_i.jpg

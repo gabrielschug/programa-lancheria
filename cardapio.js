@@ -53,29 +53,37 @@ function pesquisaCategoria(){
 function pesquisaPreco(){
 
     if(fs.existsSync('produtos.txt')){  // SE produtos.txt existir ENTÃO...
-        
         // Lê as linhas do .txt e fatia e separando as linhas (\n)
         const produtos = fs.readFileSync('produtos.txt','utf-8').split('\n')
-        console.log('\n🔍 Pesquisa por Preço\n' + '-'.repeat(40) + '\n\n')
-        const min = Number(prompt('Valor Mínimo............: ')).toFixed(2)
-        const max = Number(prompt('Valor Máximo............: ')).toFixed(2)
         
-            for (i in produtos) {
-                const partes = produtos[i].split(';')
-                
-                nomes.push(partes[0])
-                categorias.push(partes[1])
-                igredientes.push(partes[2])
-                precos.push(Number(partes[3]))
-                fotos.push(partes[4])
-            }
+        // Título da Secção
+        console.log('-'.repeat(83) + '\n🔍 Pesquisa por Preço\n' + '-'.repeat(83) + '\n')
+        
+        // Entrada de preços mínimos e máximos:
+        const min = Number(prompt('🔻 Valor Mínimo............: ')).toFixed(2)
+        const max = Number(prompt('🔺 Valor Máximo............: ')).toFixed(2)
 
-            for (cat in partes) {
-                if(precos[cat] >= min & precos[cat] <= max) {
-                    console.log(`${nomes[cat].padEnd(20)} ${categorias[cat].padEnd(10)} ${igredientes[cat].padEnd(40)} ${precos[cat].padStart(8)}`)
-                }
+        // Contador de Itens
+        let contador =0
+        for (i in nomes) {
+            if(precos[i] >= min & precos[i] <= max){ // SE existir preços nesta faixa de valores ENTÃO...
+                contador++ // Conte...
             }
+        
+        // Tabela dos Itens
         }
+        if(contador == 0) { // SE a Contagem deu 0 ENTÃO INFORME ... 
+            console.log('\n🔶 Não há itens nesta faixa de preços...')
+        }else {
+                console.log(`\n💵 Produtos entre R$ ${min} e R$ ${max}:\n\n` + '-'.repeat(83) + `\nProduto............: Categoria: Igredientes............................: Preço....:\n`)
+                
+                for (i in nomes) {
+                if(precos[i] >= min & precos[i] <= max){    
+                    console.log(`${nomes[i].padEnd(20)} ${categorias[i].padEnd(10)} ${igredientes[i].padEnd(40)} R$ ${precos[i].toFixed(2).padStart(7)}`)
+            }
+            }
+        } console.log('-'.repeat(83) + '\n')
+    }
 }
 
 function cardapioWeb() {
