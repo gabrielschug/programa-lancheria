@@ -8,24 +8,24 @@ const precos = []
 const fotos = []
 
 function inclusao(){
-console.log('\n Inclusão de Produtos no Cardápio')
-console.log('-'.repeat(40))
-const a =        prompt('Nome do Produto......: ')
-const b =        prompt('Categoria............: ').toUpperCase()
-const c =        prompt('Igredientes..........: ')
-const d = Number(prompt('Preço R$.............: ')).toFixed(2)
-const e =        prompt('URL  da foto.........: ')
+    console.log('\n Inclusão de Produtos no Cardápio')
+    console.log('-'.repeat(40))
+    const a =        prompt('Nome do Produto......: ')
+    const b =        prompt('Categoria............: ').toUpperCase()
+    const c =        prompt('Igredientes..........: ')
+    const d = Number(prompt('Preço R$.............: ')).toFixed(2)
+    const e =        prompt('URL  da foto.........: ')
 
-// Adicionar nos vetores
-nomes.push(a)
-categorias.push(b)
-igredientes.push(c)
-precos.push(d)
-fotos.push(e)
+    // Adicionar nos vetores
+    nomes.push(a)
+    categorias.push(b)
+    igredientes.push(c)
+    precos.push(d)
+    fotos.push(e)
 
-gravaProdutos()
+    gravaProdutos()
 
-console.log(`\n✅ Produto Cadastrado com Sucesso!\n`+`-`.repeat(40))
+    console.log(`\n✅ Produto Cadastrado com Sucesso!\n`+`-`.repeat(40))
 }
 
 function listagem(){
@@ -98,7 +98,7 @@ function cardapioWeb() {
 
 </head>
 <body>
-    <h1>Lacheria Avenida - Cardápio Online</h1>
+    <h1>🍔 LANCHERIA AVENIDA | Cardápio Online</h1>
     
     <table>
         <thead>
@@ -134,7 +134,7 @@ function cardapioWeb() {
         
         fs.writeFileSync('cardapioWeb.html', conteudo)
     
-        console.log(`\n✅ Cardápio gerado com sucesso`)
+        console.log(`\n✅ Cardápio gerado com sucesso\nAcesse aqui: file:///C:/Users/gabri/Documents/GitHub/programa-lancheria/cardapioWeb.html`)
 }
 
 function gerarCardapioporCategoria(){
@@ -236,5 +236,5 @@ do{
     }
 } while(true)
 
-    // Chamar função gravaProdutos(), assim que o programa finalizar
-    gravaProdutos()
+// Chamar função gravaProdutos(), assim que o programa finalizar
+gravaProdutos()
