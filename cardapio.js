@@ -23,6 +23,8 @@ igredientes.push(c)
 precos.push(d)
 fotos.push(e)
 
+gravaProdutos()
+
 console.log(`\n✅ Produto Cadastrado com Sucesso!\n`+`-`.repeat(40))
 }
 
@@ -50,18 +52,86 @@ function pesquisaCategoria(){
 
 function pesquisaPreco(){
 
+    if(fs.existsSync('produtos.txt')){  // SE produtos.txt existir ENTÃO...
+        
+        // Lê as linhas do .txt e fatia e separando as linhas (\n)
+        const produtos = fs.readFileSync('produtos.txt','utf-8').split('\n')
+        console.log('\n🔍 Pesquisa por Preço\n' + '-'.repeat(40) + '\n\n')
+        const min = Number(prompt('Valor Mínimo............: ')).toFixed(2)
+        const max = Number(prompt('Valor Máximo............: ')).toFixed(2)
+        
+            for (i in produtos) {
+                const partes = produtos[i].split(';')
+                
+                nomes.push(partes[0])
+                categorias.push(partes[1])
+                igredientes.push(partes[2])
+                precos.push(Number(partes[3]))
+                fotos.push(partes[4])
+            }
+
+            for (cat in partes) {
+                if(precos[cat] >= min & precos[cat] <= max) {
+                    console.log(`${nomes[cat].padEnd(20)} ${categorias[cat].padEnd(10)} ${igredientes[cat].padEnd(40)} ${precos[cat].padStart(8)}`)
+                }
+            }
+        }
 }
 
 function cardapioWeb() {
         let conteudo = `
-        <html>
-            <body>
-                <h1>Teste</h1>
-                </body>
-        </html>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio |  Lancheria Avenida</title>
+    <style>
+        body {  font-family: Arial; margin: 30px; background-color: white;}
+        h1 { color: brown; }
+        table{width: 100%; border-collapse: collapse; background-color: white; border-bottom: 1px 1px 6px #999; border-radius: 8px; overflow: hidden;}
+        th, td {padding: 12px; text-align: left; border-bottom: 1px solid #ccc;}
+        th{background-color: #e0dede; color: #333;}
+        img{max-width: 100px; max-height: 120px; border-radius:4px;}
+        tr:hover {background-color: #f9f9f9;}
+    </style>
+
+</head>
+<body>
+    <h1>Lacheria Avenida - Cardápio Online</h1>
     
+    <table>
+        <thead>
+
+            <tr>
+                <th>Produto</th>
+                <th>Categoria</th>
+                <th>Igredientes</th>
+                <th>Preço R$</th>
+                <th>Imagem Ilustrativa</th>
+            </tr>
+        </thead>
+        <tbody>
         `
-    
+        for (i in nomes) {
+            conteudo += `
+            <tr>
+                <td>${nomes[i]}</td>
+                <td>${categorias[i]}</td>
+                <td>${igredientes[i]}</td>
+                <td>${precos[i].toFixed(2)}</td>
+                <td><img src="${fotos[i]}" alt="Foto do Produto"></td>
+            </tr>
+            `
+        }
+
+        conteudo+= `
+                </tbody>
+            </table>
+        </body>
+        </html>
+        `
+        
         fs.writeFileSync('cardapioWeb.html', conteudo)
     
         console.log(`\n✅ Cardápio gerado com sucesso`)
@@ -109,7 +179,6 @@ function obtemProdutos () {
         }
     }
 }
-
 
 // Carregar lista de produtos antes do Menu (se existir arquivo)
 obtemProdutos()
