@@ -191,7 +191,100 @@ function cardapioWeb() {
   );
 }
 
-function gerarCardapioporCategoria() {}
+function gerarCardapioporCategoria() {
+  
+  // Título da Secção
+  console.log("-".repeat(83) + "\n🔍 Cadápio por Categoria Web\n" + "-".repeat(83) + "\n");
+
+  // Entrada da Categoria
+
+  const cat = prompt("🔹 Categoria............: ").toUpperCase();
+
+  // Contador de Itens
+  let contador = 0;
+  for (i in categorias) {
+      if (cat == categorias[i]) { // SE existir itens nesta categoria ENTÃO...
+          contador++; // Conte...
+      }
+  }
+
+  let conteudoInicio
+  let conteudoMeio
+    // Início da página
+    conteudoInicio = `
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Cardápio |  Lancheria Avenida</title>
+      <style>
+      body {  font-family: Arial; margin: 30px; background-color: white;}
+      h1 { color: brown; }
+      table{width: 100%; border-collapse: collapse; background-color: white; border-bottom: 1px 1px 6px #999; border-radius: 8px; overflow: hidden;}
+      th, td {padding: 12px; text-align: left; border-bottom: 1px solid #ccc;}
+      th{background-color: #e0dede; color: #333;}
+      img{max-width: 100px; max-height: 120px; border-radius:4px;}
+      tr:hover {background-color: #f9f9f9;}
+      </style>
+      </head>
+      <body>
+      <h1>🍔 LANCHERIA AVENIDA | Cardápio Online</h1>
+      ` 
+
+    // Tabela dos Itens
+    if (contador == 0) {// SE a Contagem deu 0 ENTÃO ...
+        console.log("\n🔶 Não há itens nesta Categoria...\n")
+        conteudoMeio = `
+        <h3>🔶 Não há itens nesta Categoria...</h3>
+        </body>
+        </html>
+        `
+      } else {
+        conteudoMeio = `
+          <table>
+            <thead>    
+              <tr>
+                <th>Produto</th>
+                <th>Categoria</th>
+                <th>Igredientes</th>
+                <th>Preço R$</th>
+                <th>Imagem Ilustrativa</th>      
+        `
+
+      for (i in categorias) {
+        if (cat == categorias[i]) { // SE existir itens nesta categoria ENTÃO...
+          conteudoMeio+=`
+          <tr>
+              <td>${nomes[i]}</td>
+              <td>${categorias[i]}</td>
+              <td>${igredientes[i]}</td>
+              <td>${precos[i].toFixed(2)}</td>
+              <td><img src="${fotos[i]}" alt="Foto do Produto"></td>
+              `
+        }
+      }
+
+        conteudoMeio += `
+          </tr>
+          </tbody>
+          </table>
+          </body>
+          </html>
+          `
+      }
+
+  //Juntando as 3 partes
+  conteudo = conteudoInicio + conteudoMeio
+
+  // Incluindo o conteudo no html
+  fs.writeFileSync("cardapioCategoriaWeb.html", conteudo);
+
+  // Finalizando o Processo
+  console.log(
+    `\n✅ Cardápio gerado com sucesso\nAcesse aqui: file:///C:/Users/gabri/Documents/GitHub/programa-lancheria/cardapioCategoriaWeb.html`
+  );
+}
 
 function alteracao() {}
 
@@ -216,7 +309,7 @@ function gravaProdutos() {
 
   //Salvar dados do Vetor
   fs.writeFileSync("produtos.txt", produtos.join("\n"));
-  console.log(`\n✅ Lista Produtos salva com sucesso!`);
+  console.log(`\n🔹 Volte Sempre!\n`);
 }
 
 function obtemProdutos() {
@@ -243,7 +336,8 @@ function obtemProdutos() {
 obtemProdutos();
 //---------------------------------- PROGRAMA PRINCIPAL ---------------------------------------
 
-menuPrincipal: do {
+menuPrincipal: 
+do {
   console.log(
     "-".repeat(50) +
       "\n🍔 Lancheria Avenida - Controle de Cardápio\n" +
