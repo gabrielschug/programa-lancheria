@@ -321,7 +321,17 @@ function alteracao() {
 
 
 
-function exclusao() {}
+function exclusao() {
+
+  // Lê as linhas do .txt e fatia e separando as linhas (\n)
+  const produtos = fs.readFileSync("produtos.txt", "utf-8").split("\n");
+  const partes = produtos[i].split(";");
+  
+  for (i in produtos) {
+    console.log(partes)
+  }
+
+}
 
 function gravaProdutos() {
   const produtos = [];
