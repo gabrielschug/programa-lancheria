@@ -286,31 +286,35 @@ function gerarCardapioporCategoria() {
   );
 }
 
-
-
-
-
 function alteracao() {
 
-  // Título da Secção
+  // TÍTULO da Secção
   console.log("-".repeat(83) + "\n💱 Alterar Preço de Produto\n" + "-".repeat(83) + "\n")
 
 
+  // Exibe a TABELA de Produtos e Preços
   console.log(`\nProduto............: Preço....:\n`
       )
   for (let i in nomes) {
     console.log(`${Number(i)+1} ${nomes[i].padEnd(20)} R$ ${precos[i]}`);
   }
+
+  // ENTRADA do índice do produto à alterar
   let prod = Number(prompt("\n🔹 Nº do Produto: "))
-
-  prod-=1
-  console.log(`${nomes[prod].padEnd(20)} R$${precos[prod]}`)
-  novoPreco = Number(prompt("🔹 Infome o Novo Preço R$: ")).toFixed(2)
-  precos[prod] = novoPreco
-
-  console.log(`\n✅ FEITO! Preço do produto ${nomes[prod]} alterado para R$ ${(novoPreco)} com sucesso!`)
   
-  gravaProdutos();
+  // Verifica se a ENTRADA É UM NÚMERO VÁLIDO
+  if (prod < 1 || prod > nomes.length || isNaN(prod)) {
+    console.log("\n🔶 Ops... O índice do produto informado não existe.")
+  } else {
+    prod-=1
+    console.log(`${nomes[prod].padEnd(20)} R$${precos[prod]}`)
+    novoPreco = Number(prompt("🔹 Infome o Novo Preço R$: ")).toFixed(2)
+    precos[prod] = novoPreco
+  
+    console.log(`\n✅ FEITO! Preço do produto ${nomes[prod]} alterado para R$ ${(novoPreco)} com sucesso!`)
+    
+    gravaProdutos();
+  }
 }
 
 
@@ -368,11 +372,11 @@ obtemProdutos();
 menuPrincipal: 
 do {
   console.log(
-    "-".repeat(50) +
-      "\n🍔 Lancheria Avenida - Controle de Cardápio\n" +
-      "-".repeat(50)
+    "\n"+"-".repeat(83) +
+      "\n🍔 LANCHERIA AVENIDA - CONTROLE DE CARDÁPIO\n" +
+      "-".repeat(83)
   );
-  console.log("1. 📝 Inclusão de Produtos");
+  console.log("\n1. 📝 Inclusão de Produtos");
   console.log("2. 📋 Listagem de Produtos");
   console.log("3. 🔍 Pesquisa por Categoria");
   console.log("4. 🔎 Pesquisa por Intervalo de Preço");

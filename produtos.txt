@@ -1,10 +1,10 @@
-Torrada;SALGADOS;Pao + queijo + presunto;10.5;https://applicativa-marketplace-prod.s3.amazonaws.com/torrada-artigo.jpg
+Torrada;SALGADOS;Pao + queijo + presunto;11;https://applicativa-marketplace-prod.s3.amazonaws.com/torrada-artigo.jpg
 Suco de Laranja;SUCOS;agua + poupa de fruta;12;https://villalvafrutas.com.br/wp-content/uploads/2018/01/599beb39b869f.jpg
 Pastel de Guisado;SALGADOS;Massa + guisado + ovo;5.5;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzsbobljQ4Sg__Azj0yHW0syjnaYKb5jKG9g&s
-Coca Cola 600ml;BEBIDAS;S/A;5.5;https://andinacocacola.vtexassets.com/arquivos/ids/158894-800-450?v=638828463792970000&width=800&height=450&aspect=true
+Coca Cola 600ml;BEBIDAS;S/A;9.5;https://andinacocacola.vtexassets.com/arquivos/ids/158894-800-450?v=638828463792970000&width=800&height=450&aspect=true
 Bauru Completo;LANCHES;Pao + Carne + Ovo + Saladas;20;https://static.ifood-static.com.br/image/upload/t_high/pratos/d5b94b50-a484-4e3a-9752-63ed103e3151/201909121400_xg2O_i.jpg
 Sanduiche Natural;LANCHES;Pao + alface + tomate + frango;20.5;https://receitatodahora.com.br/wp-content/uploads/2015/10/sanduiche-natural-para-vender-1200x734.jpg
 Antártica Guarana 600ml;BEBIDAS;N/A;6.5;https://zaffari.vtexassets.com/arquivos/ids/264241/1008266-00.jpg?v=638688178067800000
 Mousse de Limao;SOBREMESA;Limao + bolo + cobertura;9.99;https://www.receitasnestle.com.br/sites/default/files/styles/recipe_detail_desktop_new/public/srh_recipes/4bf46cf5c0ccd4e6da40aa8354a83243.jpeg?itok=WaLakGvh
 Cheease Cake;SOBREMESA;Queijo + base de biscoito;13.99;https://cozinhaglobo.com.br/wp-content/uploads/2023/06/receita-de-cheesecake-de-morango.jpg
-Cookie de Red Velvet;SOBREMESA;Biscoito;10.00;https://fabindustria.com.br/wp-content/uploads/2020/11/cookie-redevelvet-fb-1-1.jpg
+Cookie de Red Velvet;SOBREMESA;Biscoito;11;https://fabindustria.com.br/wp-content/uploads/2020/11/cookie-redevelvet-fb-1-1.jpg
