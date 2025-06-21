@@ -286,7 +286,36 @@ function gerarCardapioporCategoria() {
   );
 }
 
-function alteracao() {}
+
+
+
+
+function alteracao() {
+
+  // Título da Secção
+  console.log("-".repeat(83) + "\n💱 Alterar Preço de Produto\n" + "-".repeat(83) + "\n")
+
+
+  console.log(`\nProduto............: Preço....:\n`
+      )
+  for (let i in nomes) {
+    console.log(`${Number(i)+1} ${nomes[i].padEnd(20)} R$ ${precos[i]}`);
+  }
+  let prod = Number(prompt("\n🔹 Nº do Produto: "))
+
+  prod-=1
+  console.log(`${nomes[prod].padEnd(20)} R$${precos[prod]}`)
+  novoPreco = Number(prompt("🔹 Infome o Novo Preço R$: ")).toFixed(2)
+  precos[prod] = novoPreco
+
+  console.log(`\n✅ FEITO! Preço do produto ${nomes[prod]} alterado para R$ ${(novoPreco)} com sucesso!`)
+  
+  gravaProdutos();
+}
+
+
+
+
 
 function exclusao() {}
 
