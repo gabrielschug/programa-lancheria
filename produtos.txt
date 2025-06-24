@@ -1,4 +1,4 @@
-Suco Citrico;SUCOS;agua + poupa de fruta;15;https://villalvafrutas.com.br/wp-content/uploads/2018/01/599beb39b869f.jpg
+Suco Citrico;BEBIDAS;agua + poupa de fruta;15;https://villalvafrutas.com.br/wp-content/uploads/2018/01/599beb39b869f.jpg
 Pastel de Carne;SALGADOS;Massa + guisado + ovo;5.5;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzsbobljQ4Sg__Azj0yHW0syjnaYKb5jKG9g&s
 Coca Cola 600ml;BEBIDAS;S/A;9.5;https://andinacocacola.vtexassets.com/arquivos/ids/158894-800-450?v=638828463792970000&width=800&height=450&aspect=true
 Bauru Completo;LANCHES;Pao + Carne + Ovo + Saladas;20;https://static.ifood-static.com.br/image/upload/t_high/pratos/d5b94b50-a484-4e3a-9752-63ed103e3151/201909121400_xg2O_i.jpg
@@ -6,5 +6,5 @@ Sanduiche Natural;LANCHES;Pao + alface + tomate + frango;15.9;https://receitatod
 Antartica 600ml;BEBIDAS;N/A;6.5;https://zaffari.vtexassets.com/arquivos/ids/264241/1008266-00.jpg?v=638688178067800000
 Mousse de Limao;SOBREMESA;Limao + bolo + cobertura;9.99;https://www.receitasnestle.com.br/sites/default/files/styles/recipe_detail_desktop_new/public/srh_recipes/4bf46cf5c0ccd4e6da40aa8354a83243.jpeg?itok=WaLakGvh
 Cookie de Red Velvet;SOBREMESA;Biscoito;11;https://fabindustria.com.br/wp-content/uploads/2020/11/cookie-redevelvet-fb-1-1.jpg
-Torrada;LANCHE;Pao + queijo + presunto;13;https://s2-receitas.glbimg.com/udGQBLajvdBePnqX41Q5K9dnabM=/0x0:1200x675/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_1f540e0b94d8437dbbc39d567a1dee68/internal_photos/bs/2024/r/A/e5pL44SmuALYC3fx103w/torrada-francesa.jpg
+Torrada;LANCHES;Pao + queijo + presunto;13;https://s2-receitas.glbimg.com/udGQBLajvdBePnqX41Q5K9dnabM=/0x0:1200x675/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_1f540e0b94d8437dbbc39d567a1dee68/internal_photos/bs/2024/r/A/e5pL44SmuALYC3fx103w/torrada-francesa.jpg
 Bolo de Chocolate;LANCHES;Farinha + chocolate + leite;13;https://recipesblob.oetker.com.br/assets/e4907609f7e14c7ca1c9d68b5149499a/1272x764/bolo-de-chocolate-com-cobertura.webp

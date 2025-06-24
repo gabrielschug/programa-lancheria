@@ -293,6 +293,7 @@ function CardapioporCategoria() {
     `\n✅ Cardápio gerado com sucesso\nAcesse aqui: file:///C:/Users/gabri/Documents/GitHub/programa-lancheria/cardapioCategoriaWeb.html`
   );
 }
+
 function alterarProduto() {
 
   // TÍTULO da Secção
@@ -321,6 +322,39 @@ function alterarProduto() {
     nomes[prod] = novoNome
   
     console.log(`\n✅ Produto ${nomeAntigo} foi ALTERADO para ${(novoNome)}.`)
+    
+    gravaProdutos();
+  }
+}
+
+function alterarCategoria() {
+
+  // TÍTULO da Secção
+  console.log('\n'+"-".repeat(83) + "\n🛒 Alterar Categoria de Produto\n" + "-".repeat(83) + "\n")
+
+  // Exibe a TABELA de Produtos e Preços
+  console.log(`\nID..: Produto............: Categoria: \n`)
+  for (let i in nomes) {
+    let aux = Number(i)+1
+    console.log(`${String(aux).padEnd(5)} ${nomes[i].padEnd(20)} ${categorias[i].padEnd(10)}`);
+  }
+
+  // ENTRADA do índice do produto à alterar
+  let prod = Number(prompt("\n🔹 Informe o 'ID' do Produto: "))
+  
+  // Verifica se a ENTRADA É UM NÚMERO VÁLIDO
+  if (isNaN(prod) || prod < 1 || prod > nomes.length) {
+    console.log("\n🔶 Ops... O índice do produto informado não existe.")
+  } else {
+    prod-=1
+    const infoAntigo = categorias[prod]
+    console.log(`   ${nomes[prod].padEnd(26)} ${categorias[prod].padEnd(10)}`)
+    do{
+    novoNome = prompt("🔹 Infome a Nova Categoria:   ").toUpperCase()
+    } while(isNaN(novoNome)== false)
+    categorias[prod] = novoNome
+  
+    console.log(`\n✅ A Categoria ${infoAntigo} do Produto ${nomes[prod]} foi ALTERADA para ${(novoNome)}.`)
     
     gravaProdutos();
   }
