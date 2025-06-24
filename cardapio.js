@@ -317,11 +317,39 @@ function alteracao() {
   }
 }
 
+function exclusao() {
+  // TÍTULO da Secção
+  console.log("-".repeat(83) + "\n❌ Excluir Produto\n" + "-".repeat(83) + "\n")
 
 
+  // Exibe a TABELA de Produtos e Preços
+  console.log(`\nProduto............:\n`
+      )
+  for (let i in nomes) {
+    console.log(`${Number(i)+1} ${nomes[i].padEnd(20)}`);
+  }
 
+  // ENTRADA do índice do produto à alterar
+  let prod = Number(prompt("\n🔹 Nº do Produto: "))
+  
+  // Verifica se a ENTRADA É UM NÚMERO VÁLIDO
+  if (prod < 1 || prod > nomes.length || isNaN(prod)) {
+    console.log("\n🔶 Ops... O índice do produto informado não existe.")
+  } else {
+    console.log(nomes)
+    prod-=1
+    console.log(`${nomes[prod].padEnd(20)}`)
+    
+    nomes.splice(prod,1)
+    categorias.splice(prod,1)
+    igredientes.splice(prod,1)
+    precos.splice(prod,1)
+    fotos.splice(prod,1)
+    console.log(`\n❌ EXCLUÍDO! O produto ${nomes[prod]} foi exluído do banco!`)
+    gravaProdutos();
+  }
 
-function exclusao() {}
+}
 
 function gravaProdutos() {
   const produtos = [];
