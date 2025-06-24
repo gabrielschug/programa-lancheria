@@ -8,24 +8,35 @@ const precos = [];
 const fotos = [];
 
 function inclusao() {
-  console.log("\n Inclusão de Produtos no Cardápio");
-  console.log("-".repeat(40));
+
+  // TÍTULO da Secção
+  console.log('\n'+"-".repeat(83) + "\n📝 Inclusão de Produtos\n" + "-".repeat(83) + "\n")
+
+  // ENTRADAS de Dados
+
+  console.log(`\n🔹 Informe Nome, Categoria, Igreditentes, Preço e Imagem do produto\n\n⚠️ OBS.: Cancele a inclusão digitando '0' em qualquer entrada.\n`)
   const a = prompt("Nome do Produto......: ");
   const b = prompt("Categoria............: ").toUpperCase();
   const c = prompt("Igredientes..........: ");
   const d = Number(prompt("Preço R$.............: ")).toFixed(2);
   const e = prompt("URL  da foto.........: ");
 
-  // Adicionar nos vetores
-  nomes.push(a);
-  categorias.push(b);
-  igredientes.push(c);
-  precos.push(d);
-  fotos.push(e);
+  // Se entrou algum valor zero: CANCELA
+  if ([a,b,c,d].includes('0')){
+    console.log('\n🔶 A  inclusão do produto foi cancelada...\n')
 
-  gravaProdutos();
-
-  console.log(`\n✅ Produto Cadastrado com Sucesso!\n` + `-`.repeat(40));
+  } else{
+    // INCLUINDO aos vetores
+    nomes.push(a);
+    categorias.push(b);
+    igredientes.push(c);
+    precos.push(d);
+    fotos.push(e);
+  
+    // INFO de Conclusão + SALVAR
+    console.log(`\n✅ Produto Cadastrado com Sucesso!\n` + `-`.repeat(83));
+    gravaProdutos();
+  }
 }
 
 function listagem() {
@@ -321,7 +332,6 @@ function exclusao() {
   // TÍTULO da Secção
   console.log("-".repeat(83) + "\n❌ Excluir Produto\n" + "-".repeat(83) + "\n")
 
-
   // Exibe a TABELA de Produtos e Preços
   console.log(`\nProduto............:\n`
       )
@@ -336,19 +346,19 @@ function exclusao() {
   if (prod < 1 || prod > nomes.length || isNaN(prod)) {
     console.log("\n🔶 Ops... O índice do produto informado não existe.")
   } else {
-    console.log(nomes)
     prod-=1
-    console.log(`${nomes[prod].padEnd(20)}`)
-    
+    let antigoProduto = nomes[prod]
+    // Excluindo itens (método SPLICE)
     nomes.splice(prod,1)
     categorias.splice(prod,1)
     igredientes.splice(prod,1)
     precos.splice(prod,1)
     fotos.splice(prod,1)
-    console.log(`\n❌ EXCLUÍDO! O produto ${nomes[prod]} foi exluído do banco!`)
+
+    // Info de Exclusão e Salva Produtos
+    console.log(`\n❌ Este produto EXCLUÍDO foi excluído.`)
     gravaProdutos();
   }
-
 }
 
 function gravaProdutos() {
