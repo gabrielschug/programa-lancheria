@@ -18,7 +18,7 @@ function inclusao() {
   const a = prompt("Nome do Produto......: ");
   const b = prompt("Categoria............: ").toUpperCase();
   const c = prompt("Igredientes..........: ");
-  const d = Number(prompt("Preço R$.............: ")).toFixed(2);
+  const d = Number(prompt("Preço R$.............: "));
   const e = prompt("URL  da foto.........: ");
 
   // Se entrou algum valor zero: CANCELA
@@ -293,8 +293,40 @@ function CardapioporCategoria() {
     `\n✅ Cardápio gerado com sucesso\nAcesse aqui: file:///C:/Users/gabri/Documents/GitHub/programa-lancheria/cardapioCategoriaWeb.html`
   );
 }
+function alterarProduto() {
 
-function alteracao() {
+  // TÍTULO da Secção
+  console.log('\n'+"-".repeat(83) + "\n💱 Alterar Nome de Produto\n" + "-".repeat(83) + "\n")
+
+  // Exibe a TABELA de Produtos e Preços
+  console.log(`\nID..: Produto............:\n`)
+  for (let i in nomes) {
+    let aux = Number(i)+1
+    console.log(`${String(aux).padEnd(5)} ${nomes[i].padEnd(20)}`);
+  }
+
+  // ENTRADA do índice do produto à alterar
+  let prod = Number(prompt("\n🔹 Informe o 'ID' do Produto: "))
+  
+  // Verifica se a ENTRADA É UM NÚMERO VÁLIDO
+  if (isNaN(prod) || prod < 1 || prod > nomes.length) {
+    console.log("\n🔶 Ops... O índice do produto informado não existe.")
+  } else {
+    prod-=1
+    const nomeAntigo = nomes[prod]
+    console.log(`   ${nomes[prod].padEnd(26)}`)
+    do{
+    novoNome = prompt("🔹 Infome o Novo Nome: ")
+    } while(isNaN(novoNome)== false)
+    nomes[prod] = novoNome
+  
+    console.log(`\n✅ Produto ${nomeAntigo} foi ALTERADO para ${(novoNome)}.`)
+    
+    gravaProdutos();
+  }
+}
+
+function alterarPreco() {
 
   // TÍTULO da Secção
   console.log('\n'+"-".repeat(83) + "\n💱 Alterar Preço de Produto\n" + "-".repeat(83) + "\n")
@@ -418,9 +450,12 @@ do {
   console.log("4. 🔎 Pesquisa por Intervalo de Preço");
   console.log("5. 📖 Gerar Cardápio Web");
   console.log("6. 🌐 Gerar Cardápio Web por Categoria");
-  console.log("7. 💱 Alterar Preço de Produto");
-  console.log("8. ❌ Excluir Produto");
-  console.log("9. ↩️ Finalizar");
+  console.log("7. 🔡 Alterar Nome de Produto");
+  console.log("8. 🛒 Alterar Categoria de Produto");
+  console.log("9. 🥗 Alterar Igredientes de Produto");
+  console.log("10.💱 Alterar Preço de Produto");
+  console.log("11.❌ Excluir Produto");
+  console.log("12.↩️ Finalizar");
   const opcao = Number(prompt("\n🔸 Opção: "));
 
   switch (opcao) {
@@ -449,10 +484,21 @@ do {
       break;
     }
     case 7: {
-      alteracao();
+      alterarProduto();
       break;
     }
-    case 8: {
+        case 8: {
+      alterarCategoria();
+      break;
+    }    case 9: {
+      alterarIgredientes();
+      break;
+    }
+    case 10: {
+      alterarPreco();
+      break;
+    }
+    case 11: {
       exclusao();
       break;
     }
