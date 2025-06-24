@@ -64,7 +64,7 @@ function pesquisaCategoria() {
     const produtos = fs.readFileSync("produtos.txt", "utf-8").split("\n");
 
     // Título da Secção
-    console.log("-".repeat(83) + "\n🔍 Pesquisa por Categoria\n" + "-".repeat(83) + "\n");
+    console.log('\n'+"-".repeat(83) + "\n🔍 Pesquisa por Categoria\n" + "-".repeat(83) + "\n");
 
     // Entrada da Categoria:
     const cat = prompt("🔹 Categoria............: ").toUpperCase();
@@ -79,7 +79,7 @@ function pesquisaCategoria() {
 
     // Tabela dos Itens
     if (contador == 0) {// SE a Contagem deu 0 ENTÃO INFORME ...
-        console.log("\n🔶 Não há itens nesta Categoria...\n");
+        console.log("\n\n🔶 Não há itens nesta Categoria.");
     } else {
         console.log(`\n`+"-".repeat(83) +
         `\nProduto............: Categoria: Igredientes............................: Preço....:\n`);
