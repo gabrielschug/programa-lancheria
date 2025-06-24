@@ -101,12 +101,12 @@ function pesquisaPreco() {
 
     // Título da Secção
     console.log(
-      "-".repeat(83) + "\n🔍 Pesquisa por Preço\n" + "-".repeat(83) + "\n"
+      '\n'+"-".repeat(83) + "\n🔍 Pesquisa por Preço\n" + "-".repeat(83) + "\n"
     );
 
     // Entrada de preços mínimos e máximos:
-    const min = Number(prompt("🔻 Valor Mínimo............: ")).toFixed(2);
-    const max = Number(prompt("🔺 Valor Máximo............: ")).toFixed(2);
+    const min = Number(prompt("🔻 Preço Mínimo............: ")).toFixed(2);
+    const max = Number(prompt("🔺 Preço Máximo............: ")).toFixed(2);
 
     // Contador de Itens
     let contador = 0;
@@ -120,11 +120,10 @@ function pesquisaPreco() {
     }
     if (contador == 0) {
       // SE a Contagem deu 0 ENTÃO INFORME ...
-      console.log("\n🔶 Não há itens nesta faixa de preços...");
+      console.log("\n\n🔶 Não há itens nesta faixa de preços.");
     } else {
       console.log(
-        `\n💵 Produtos entre R$ ${min} e R$ ${max}:\n\n` +
-          "-".repeat(83) +
+        `\n\n💵 Produtos entre R$ ${min} e R$ ${max}:\n` +
           `\nProduto............: Categoria: Igredientes............................: Preço....:\n`
       );
 
@@ -137,8 +136,8 @@ function pesquisaPreco() {
           );
         }
       }
+      console.log()
     }
-    console.log("-".repeat(83) + "\n");
   }
 }
 
