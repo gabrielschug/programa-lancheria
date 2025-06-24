@@ -40,9 +40,9 @@ function inclusao() {
 }
 
 function listagem() {
-  console.log(
-    "\n📋 Listagem dos Produtos Cadastrados\n" + "-".repeat(40) + "\n\n"
-  );
+    // TÍTULO da Secção
+  console.log('\n'+"-".repeat(83) + "\n📋 Listagem dos Produtos Cadastrados\n" + "-".repeat(83) + "\n")
+
   console.log(
     `\nProduto............: Categoria: Igredientes............................: Preço....:\n`
   );
@@ -51,9 +51,10 @@ function listagem() {
     console.log(
       `${nomes[i].padEnd(20)} ${categorias[i].padEnd(10)} ${igredientes[
         i
-      ].padEnd(40)} ${precos[i]}`
+      ].padEnd(40)}  R$ ${precos[i].toFixed(2)}`
     );
   }
+  console.log()
 }
 
 function pesquisaCategoria() {
@@ -300,7 +301,7 @@ function gerarCardapioporCategoria() {
 function alteracao() {
 
   // TÍTULO da Secção
-  console.log("-".repeat(83) + "\n💱 Alterar Preço de Produto\n" + "-".repeat(83) + "\n")
+  console.log('\n'+"-".repeat(83) + "\n💱 Alterar Preço de Produto\n" + "-".repeat(83) + "\n")
 
 
   // Exibe a TABELA de Produtos e Preços
