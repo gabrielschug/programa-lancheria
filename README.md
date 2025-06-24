@@ -42,12 +42,12 @@ O objetivo deste projeto foi construir um sistema de gerenciamento de produtos p
 ---
 
 ## 📂 Estrutura básica do projeto:
-programa-lancheria/
-├── cardapio.js
-├── produtos.txt
-├── cardapioWeb.html
-├── cardapioCategoriaWeb.html
-└── README.md
+programa-lancheria/<br>
+├── cardapio.js <br>
+├── produtos.txt<br>
+├── cardapioWeb.html<br>
+├── cardapioCategoriaWeb.html<br>
+└── README.md<br>
 
 ---
 
