@@ -49,10 +49,7 @@ function listagem() {
 
   for (let i in nomes) {
     console.log(
-      `${nomes[i].padEnd(20)} ${categorias[i].padEnd(10)} ${igredientes[
-        i
-      ].padEnd(40)}  R$ ${precos[i].toFixed(2)}`
-    );
+      `${nomes[i].padEnd(20)} ${categorias[i].padEnd(10)} ${igredientes[i].padEnd(40)}  R$ ${precos[i].toFixed(2)}`);
   }
   console.log()
 }
@@ -202,7 +199,7 @@ function cardapioWeb() {
   );
 }
 
-function gerarCardapioporCategoria() {
+function CardapioporCategoria() {
   
   // Título da Secção
   console.log("-".repeat(83) + "\n🔍 Cadápio por Categoria Web\n" + "-".repeat(83) + "\n");
@@ -302,27 +299,28 @@ function alteracao() {
   // TÍTULO da Secção
   console.log('\n'+"-".repeat(83) + "\n💱 Alterar Preço de Produto\n" + "-".repeat(83) + "\n")
 
-
   // Exibe a TABELA de Produtos e Preços
-  console.log(`\nProduto............: Preço....:\n`
-      )
+  console.log(`\nID..: Produto............: Preço....:\n`)
   for (let i in nomes) {
-    console.log(`${Number(i)+1} ${nomes[i].padEnd(20)} R$ ${precos[i]}`);
+    let aux = Number(i)+1
+    console.log(`${String(aux).padEnd(5)} ${nomes[i].padEnd(20)} R$${String(Number(precos[i]).toFixed(2)).padStart(8)}`);
   }
 
   // ENTRADA do índice do produto à alterar
-  let prod = Number(prompt("\n🔹 Nº do Produto: "))
+  let prod = Number(prompt("\n🔹 Informe o 'ID' do Produto: "))
   
   // Verifica se a ENTRADA É UM NÚMERO VÁLIDO
-  if (prod < 1 || prod > nomes.length || isNaN(prod)) {
+  if (isNaN(prod) || prod < 1 || prod > nomes.length) {
     console.log("\n🔶 Ops... O índice do produto informado não existe.")
   } else {
     prod-=1
-    console.log(`${nomes[prod].padEnd(20)} R$${precos[prod]}`)
-    novoPreco = Number(prompt("🔹 Infome o Novo Preço R$: ")).toFixed(2)
+    console.log(`   ${nomes[prod].padEnd(26)} R$ ${Number(precos[i]).toFixed(2)}`)
+    do{
+    novoPreco = Number(prompt("🔹 Infome o Novo Preço:       R$ ")).toFixed(2)
+    } while(isNaN(novoPreco))
     precos[prod] = novoPreco
   
-    console.log(`\n✅ FEITO! Preço do produto ${nomes[prod]} alterado para R$ ${(novoPreco)} com sucesso!`)
+    console.log(`\n✅ O preço do produto ${nomes[prod]} foi ALTERADO para R$ ${(novoPreco)}.`)
     
     gravaProdutos();
   }
@@ -447,7 +445,7 @@ do {
       break;
     }
     case 6: {
-      gerarCardapioporCategoria();
+      CardapioporCategoria();
       break;
     }
     case 7: {
