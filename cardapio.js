@@ -360,6 +360,39 @@ function alterarCategoria() {
   }
 }
 
+function alterarIgredientes() {
+
+  // TÍTULO da Secção
+  console.log('\n'+"-".repeat(83) + "\n🥗 Alterar Igredientes de Produto\n" + "-".repeat(83) + "\n")
+
+  // Exibe a TABELA de Produtos e Preços
+  console.log(`\nID..: Produto............: Igredientes............................: \n`)
+  for (let i in nomes) {
+    let aux = Number(i)+1
+    console.log(`${String(aux).padEnd(5)} ${nomes[i].padEnd(20)} ${igredientes[i].padEnd(40)}`);
+  }
+
+  // ENTRADA do índice do produto à alterar
+  let prod = Number(prompt("\n🔹 Informe o 'ID' do Produto: "))
+  
+  // Verifica se a ENTRADA É UM NÚMERO VÁLIDO
+  if (isNaN(prod) || prod < 1 || prod > nomes.length) {
+    console.log("\n🔶 Ops... O índice do produto informado não existe.")
+  } else {
+    prod-=1
+    const infoAntigo = igredientes[prod]
+    console.log(`   ${nomes[prod].padEnd(28)} ${igredientes[prod].padEnd(40)}`)
+    do{
+    novoNome = prompt("🔹 Infome os Novos Igredientes: ")
+    } while(isNaN(novoNome)== false)
+    igredientes[prod] = novoNome
+  
+    console.log(`\n✅ Os igredientes "${infoAntigo}" do Produto ${nomes[prod]} \nforam ALTERADOS para "${(novoNome)}".`)
+    
+    gravaProdutos();
+  }
+}
+
 function alterarPreco() {
 
   // TÍTULO da Secção
@@ -380,13 +413,13 @@ function alterarPreco() {
     console.log("\n🔶 Ops... O índice do produto informado não existe.")
   } else {
     prod-=1
-    console.log(`   ${nomes[prod].padEnd(26)} R$ ${Number(precos[i]).toFixed(2)}`)
+    console.log(`   ${nomes[prod].padEnd(26)} R$ ${Number(precos[prod]).toFixed(2)}`)
     do{
-    novoPreco = Number(prompt("🔹 Infome o Novo Preço:       R$ ")).toFixed(2)
+    novoPreco = Number(prompt("🔹 Infome o Novo Preço:       R$ "))
     } while(isNaN(novoPreco))
     precos[prod] = novoPreco
   
-    console.log(`\n✅ O preço do produto ${nomes[prod]} foi ALTERADO para R$ ${(novoPreco)}.`)
+    console.log(`\n✅ O preço do produto ${nomes[prod]} foi ALTERADO para R$ ${(novoPreco.toFixed(2))}.`)
     
     gravaProdutos();
   }
