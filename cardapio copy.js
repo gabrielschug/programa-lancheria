@@ -9,41 +9,50 @@ const precos = [];
 const fotos = [];
 
 function inclusao() {
-  console.log("\n Inclusão de Produtos no Cardápio");
-  console.log("-".repeat(40));
+
+  // TÍTULO da Secção
+  console.log('\n'+"-".repeat(83) + "\n📝 Inclusão de Produtos\n" + "-".repeat(83) + "\n")
+
+  // ENTRADAS de Dados
+
+  console.log(`\n🔹 Informe Nome, Categoria, Igreditentes, Preço e Imagem do produto\n\n⚠️ OBS.: Cancele a inclusão digitando '0' em qualquer entrada.\n`)
   const a = prompt("Nome do Produto......: ");
   const b = prompt("Categoria............: ").toUpperCase();
   const c = prompt("Igredientes..........: ");
-  const d = Number(prompt("Preço R$.............: ")).toFixed(2);
+  const d = Number(prompt("Preço R$.............: "));
   const e = prompt("URL  da foto.........: ");
 
-  // Adicionar nos vetores
-  nomes.push(a);
-  categorias.push(b);
-  igredientes.push(c);
-  precos.push(d);
-  fotos.push(e);
+  // Se entrou algum valor zero: CANCELA
+  if ([a,b,c,d].includes('0')){
+    console.log('\n🔶 A  inclusão do produto foi cancelada...\n')
 
-  gravaProdutos();
-
-  console.log(`\n✅ Produto Cadastrado com Sucesso!\n` + `-`.repeat(40));
+  } else{
+    // INCLUINDO aos vetores
+    nomes.push(a);
+    categorias.push(b);
+    igredientes.push(c);
+    precos.push(d);
+    fotos.push(e);
+  
+    // INFO de Conclusão + SALVAR
+    console.log(`\n✅ Produto Cadastrado com Sucesso!\n` + `-`.repeat(83));
+    gravaProdutos();
+  }
 }
 
 function listagem() {
-  console.log(
-    "\n📋 Listagem dos Produtos Cadastrados\n" + "-".repeat(40) + "\n\n"
-  );
+    // TÍTULO da Secção
+  console.log('\n'+"-".repeat(83) + "\n📋 Listagem dos Produtos Cadastrados\n" + "-".repeat(83) + "\n")
+
   console.log(
     `\nProduto............: Categoria: Igredientes............................: Preço....:\n`
   );
 
   for (let i in nomes) {
     console.log(
-      `${nomes[i].padEnd(20)} ${categorias[i].padEnd(10)} ${igredientes[
-        i
-      ].padEnd(40)} ${precos[i]}`
-    );
+      `${nomes[i].padEnd(20)} ${categorias[i].padEnd(10)} ${igredientes[i].padEnd(40)}  R$ ${precos[i].toFixed(2)}`);
   }
+  console.log()
 }
 
 function pesquisaCategoria() {
@@ -53,7 +62,7 @@ function pesquisaCategoria() {
     const produtos = fs.readFileSync("produtos.txt", "utf-8").split("\n");
 
     // Título da Secção
-    console.log("-".repeat(83) + "\n🔍 Pesquisa por Categoria\n" + "-".repeat(83) + "\n");
+    console.log('\n'+"-".repeat(83) + "\n🔍 Pesquisa por Categoria\n" + "-".repeat(83) + "\n");
 
     // Entrada da Categoria:
     const cat = prompt("🔹 Categoria............: ").toUpperCase();
@@ -68,7 +77,7 @@ function pesquisaCategoria() {
 
     // Tabela dos Itens
     if (contador == 0) {// SE a Contagem deu 0 ENTÃO INFORME ...
-        console.log("\n🔶 Não há itens nesta Categoria...\n");
+        console.log("\n\n🔶 Não há itens nesta Categoria.");
     } else {
         console.log(`\n`+"-".repeat(83) +
         `\nProduto............: Categoria: Igredientes............................: Preço....:\n`);
@@ -90,12 +99,12 @@ function pesquisaPreco() {
 
     // Título da Secção
     console.log(
-      "-".repeat(83) + "\n🔍 Pesquisa por Preço\n" + "-".repeat(83) + "\n"
+      '\n'+"-".repeat(83) + "\n🔍 Pesquisa por Preço\n" + "-".repeat(83) + "\n"
     );
 
     // Entrada de preços mínimos e máximos:
-    const min = Number(prompt("🔻 Valor Mínimo............: ")).toFixed(2);
-    const max = Number(prompt("🔺 Valor Máximo............: ")).toFixed(2);
+    const min = Number(prompt("🔻 Preço Mínimo............: ")).toFixed(2);
+    const max = Number(prompt("🔺 Preço Máximo............: ")).toFixed(2);
 
     // Contador de Itens
     let contador = 0;
@@ -109,11 +118,10 @@ function pesquisaPreco() {
     }
     if (contador == 0) {
       // SE a Contagem deu 0 ENTÃO INFORME ...
-      console.log("\n🔶 Não há itens nesta faixa de preços...");
+      console.log("\n\n🔶 Não há itens nesta faixa de preços.");
     } else {
       console.log(
-        `\n💵 Produtos entre R$ ${min} e R$ ${max}:\n\n` +
-          "-".repeat(83) +
+        `\n\n💵 Produtos entre R$ ${min} e R$ ${max}:\n` +
           `\nProduto............: Categoria: Igredientes............................: Preço....:\n`
       );
 
@@ -126,8 +134,8 @@ function pesquisaPreco() {
           );
         }
       }
+      console.log()
     }
-    console.log("-".repeat(83) + "\n");
   }
 }
 
@@ -192,7 +200,7 @@ function cardapioWeb() {
   );
 }
 
-function gerarCardapioporCategoria() {
+function CardapioporCategoria() {
   
   // Título da Secção
   console.log("-".repeat(83) + "\n🔍 Cadápio por Categoria Web\n" + "-".repeat(83) + "\n");
@@ -287,17 +295,146 @@ function gerarCardapioporCategoria() {
   );
 }
 
-function alteracao() {
+function alterarProduto() {
 
   // TÍTULO da Secção
-  console.log("-".repeat(83) + "\n💱 Alterar Preço de Produto\n" + "-".repeat(83) + "\n")
-
+  console.log('\n'+"-".repeat(83) + "\n💱 Alterar Nome de Produto\n" + "-".repeat(83) + "\n")
 
   // Exibe a TABELA de Produtos e Preços
-  console.log(`\nProduto............: Preço....:\n`
+  console.log(`\nID..: Produto............:\n`)
+  for (let i in nomes) {
+    let aux = Number(i)+1
+    console.log(`${String(aux).padEnd(5)} ${nomes[i].padEnd(20)}`);
+  }
+
+  // ENTRADA do índice do produto à alterar
+  let prod = Number(prompt("\n🔹 Informe o 'ID' do Produto: "))
+  
+  // Verifica se a ENTRADA É UM NÚMERO VÁLIDO
+  if (isNaN(prod) || prod < 1 || prod > nomes.length) {
+    console.log("\n🔶 Ops... O índice do produto informado não existe.")
+  } else {
+    prod-=1
+    const nomeAntigo = nomes[prod]
+    console.log(`   ${nomes[prod].padEnd(26)}`)
+    do{
+    novoNome = prompt("🔹 Infome o Novo Nome: ")
+    } while(isNaN(novoNome)== false)
+    nomes[prod] = novoNome
+  
+    console.log(`\n✅ Produto ${nomeAntigo} foi ALTERADO para ${(novoNome)}.`)
+    
+    gravaProdutos();
+  }
+}
+
+function alterarCategoria() {
+
+  // TÍTULO da Secção
+  console.log('\n'+"-".repeat(83) + "\n🛒 Alterar Categoria de Produto\n" + "-".repeat(83) + "\n")
+
+  // Exibe a TABELA de Produtos e Preços
+  console.log(`\nID..: Produto............: Categoria: \n`)
+  for (let i in nomes) {
+    let aux = Number(i)+1
+    console.log(`${String(aux).padEnd(5)} ${nomes[i].padEnd(20)} ${categorias[i].padEnd(10)}`);
+  }
+
+  // ENTRADA do índice do produto à alterar
+  let prod = Number(prompt("\n🔹 Informe o 'ID' do Produto: "))
+  
+  // Verifica se a ENTRADA É UM NÚMERO VÁLIDO
+  if (isNaN(prod) || prod < 1 || prod > nomes.length) {
+    console.log("\n🔶 Ops... O índice do produto informado não existe.")
+  } else {
+    prod-=1
+    const infoAntigo = categorias[prod]
+    console.log(`   ${nomes[prod].padEnd(26)} ${categorias[prod].padEnd(10)}`)
+    do{
+    novoNome = prompt("🔹 Infome a Nova Categoria:   ").toUpperCase()
+    } while(isNaN(novoNome)== false)
+    categorias[prod] = novoNome
+  
+    console.log(`\n✅ A Categoria ${infoAntigo} do Produto ${nomes[prod]} foi ALTERADA para ${(novoNome)}.`)
+    
+    gravaProdutos();
+  }
+}
+
+function alterarIgredientes() {
+
+  // TÍTULO da Secção
+  console.log('\n'+"-".repeat(83) + "\n🥗 Alterar Igredientes de Produto\n" + "-".repeat(83) + "\n")
+
+  // Exibe a TABELA de Produtos e Preços
+  console.log(`\nID..: Produto............: Igredientes............................: \n`)
+  for (let i in nomes) {
+    let aux = Number(i)+1
+    console.log(`${String(aux).padEnd(5)} ${nomes[i].padEnd(20)} ${igredientes[i].padEnd(40)}`);
+  }
+
+  // ENTRADA do índice do produto à alterar
+  let prod = Number(prompt("\n🔹 Informe o 'ID' do Produto: "))
+  
+  // Verifica se a ENTRADA É UM NÚMERO VÁLIDO
+  if (isNaN(prod) || prod < 1 || prod > nomes.length) {
+    console.log("\n🔶 Ops... O índice do produto informado não existe.")
+  } else {
+    prod-=1
+    const infoAntigo = igredientes[prod]
+    console.log(`   ${nomes[prod].padEnd(28)} ${igredientes[prod].padEnd(40)}`)
+    do{
+    novoNome = prompt("🔹 Infome os Novos Igredientes: ")
+    } while(isNaN(novoNome)== false)
+    igredientes[prod] = novoNome
+  
+    console.log(`\n✅ Os igredientes "${infoAntigo}" do Produto ${nomes[prod]} \nforam ALTERADOS para "${(novoNome)}".`)
+    
+    gravaProdutos();
+  }
+}
+
+function alterarPreco() {
+
+  // TÍTULO da Secção
+  console.log('\n'+"-".repeat(83) + "\n💱 Alterar Preço de Produto\n" + "-".repeat(83) + "\n")
+
+  // Exibe a TABELA de Produtos e Preços
+  console.log(`\nID..: Produto............: Preço....:\n`)
+  for (let i in nomes) {
+    let aux = Number(i)+1
+    console.log(`${String(aux).padEnd(5)} ${nomes[i].padEnd(20)} R$${String(Number(precos[i]).toFixed(2)).padStart(8)}`);
+  }
+
+  // ENTRADA do índice do produto à alterar
+  let prod = Number(prompt("\n🔹 Informe o 'ID' do Produto: "))
+  
+  // Verifica se a ENTRADA É UM NÚMERO VÁLIDO
+  if (isNaN(prod) || prod < 1 || prod > nomes.length) {
+    console.log("\n🔶 Ops... O índice do produto informado não existe.")
+  } else {
+    prod-=1
+    console.log(`   ${nomes[prod].padEnd(26)} R$ ${Number(precos[prod]).toFixed(2)}`)
+    do{
+    novoPreco = Number(prompt("🔹 Infome o Novo Preço:       R$ "))
+    } while(isNaN(novoPreco))
+    precos[prod] = novoPreco
+  
+    console.log(`\n✅ O preço do produto ${nomes[prod]} foi ALTERADO para R$ ${(novoPreco.toFixed(2))}.`)
+    
+    gravaProdutos();
+  }
+}
+
+function exclusao() {
+  // TÍTULO da Secção
+  console.log("-".repeat(83) + "\n❌ Excluir Produto\n" + "-".repeat(83) + "\n")
+
+  // Exibe a TABELA de Produtos e Preços
+  console.log(`\nProduto............:\n`
       )
   for (let i in nomes) {
-    console.log(`${Number(i)+1} ${nomes[i].padEnd(20)} R$ ${precos[i]}`);
+    console.log(`${Number(i)+1} ${nomes[i].padEnd(20)}`);
   }
 
   // ENTRADA do índice do produto à alterar
@@ -308,30 +445,18 @@ function alteracao() {
     console.log("\n🔶 Ops... O índice do produto informado não existe.")
   } else {
     prod-=1
-    console.log(`${nomes[prod].padEnd(20)} R$${precos[prod]}`)
-    novoPreco = Number(prompt("🔹 Infome o Novo Preço R$: ")).toFixed(2)
-    precos[prod] = novoPreco
-  
-    console.log(`\n✅ FEITO! Preço do produto ${nomes[prod]} alterado para R$ ${(novoPreco)} com sucesso!`)
-    
+    let antigoProduto = nomes[prod]
+    // Excluindo itens (método SPLICE)
+    nomes.splice(prod,1)
+    categorias.splice(prod,1)
+    igredientes.splice(prod,1)
+    precos.splice(prod,1)
+    fotos.splice(prod,1)
+
+    // Info de Exclusão e Salva Produtos
+    console.log(`\n❌ Este produto EXCLUÍDO foi excluído.`)
     gravaProdutos();
   }
-}
-
-
-
-
-
-function exclusao() {
-
-  // Lê as linhas do .txt e fatia e separando as linhas (\n)
-  const produtos = fs.readFileSync("produtos.txt", "utf-8").split("\n");
-  const partes = produtos[i].split(";");
-  
-  for (i in produtos) {
-    console.log(partes)
-  }
-
 }
 
 function gravaProdutos() {
@@ -393,9 +518,12 @@ do {
   console.log("4. 🔎 Pesquisa por Intervalo de Preço");
   console.log("5. 📖 Gerar Cardápio Web");
   console.log("6. 🌐 Gerar Cardápio Web por Categoria");
-  console.log("7. 💱 Alterar Preço de Produto");
-  console.log("8. ❌ Excluir Produto");
-  console.log("9. ↩️ Finalizar");
+  console.log("7. 🔡 Alterar Nome de Produto");
+  console.log("8. 🛒 Alterar Categoria de Produto");
+  console.log("9. 🥗 Alterar Igredientes de Produto");
+  console.log("10.💱 Alterar Preço de Produto");
+  console.log("11.❌ Excluir Produto");
+  console.log("12.↩️ Finalizar");
   const opcao = Number(prompt("\n🔸 Opção: "));
 
   switch (opcao) {
@@ -420,14 +548,25 @@ do {
       break;
     }
     case 6: {
-      gerarCardapioporCategoria();
+      CardapioporCategoria();
       break;
     }
     case 7: {
-      alteracao();
+      alterarProduto();
       break;
     }
-    case 8: {
+        case 8: {
+      alterarCategoria();
+      break;
+    }    case 9: {
+      alterarIgredientes();
+      break;
+    }
+    case 10: {
+      alterarPreco();
+      break;
+    }
+    case 11: {
       exclusao();
       break;
     }
