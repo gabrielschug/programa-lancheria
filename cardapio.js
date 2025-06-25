@@ -1,4 +1,3 @@
-// 2VIA
 const prompt = require("prompt-sync")();
 const fs = require("fs"); // fs: file system (para manipular aqruivos)
 
